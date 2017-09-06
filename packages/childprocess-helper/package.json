@@ -1,0 +1,36 @@
+{
+  "name": "childprocess-helper",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "standard": {
+    "env": {
+      "jest": true
+    }
+  },
+  "scripts": {
+    "lint": "standard --fix",
+    "test": "npm run lint && jest",
+    "ci": "standard && jest --coverage"
+  },
+  "repository": "https://github.com/baocancode/npm-packages/tree/master/packages/childprocess-helper",
+  "author": "Bao Dang <baocancode@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cross-spawn": "^5.1.0"
+  }
+}
