@@ -1,0 +1,42 @@
+{
+  "name": "monorepo-helper",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "bin": {
+    "mono": "lib/cli.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "standard": {
+    "env": {
+      "jest": true
+    }
+  },
+  "scripts": {
+    "lint": "standard --fix",
+    "test": "npm run lint && jest",
+    "ci": "standard && jest --coverage"
+  },
+  "repository": "https://github.com/baocancode/npm-packages/tree/master/packages/monorepo-helper",
+  "author": "Bao Dang <baocancode@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "childprocess-helper": "^0.1.0",
+    "fs-extra": "^4.0.1",
+    "is-builtin-module": "^1.0.0",
+    "precinct": "^3.8.0"
+  }
+}

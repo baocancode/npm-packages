@@ -4,5 +4,32 @@
   "private": true,
   "repository": "https://github.com/baocancode/npm-packages",
   "author": "Bao Dang <baocancode@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "monorepo-helper": {
+      "packageContainer": "packages",
+      "defaultBins": [
+        "jest",
+        "standard"
+      ]
+    }
+  },
+  "scripts": {
+    "boot": "node packages/monorepo-helper/lib/cli boot",
+    "build": "node packages/monorepo-helper/lib/cli build",
+    "postinstall": "npm run boot && npm run build",
+    "clean": "node packages/monorepo-helper/lib/cli clean",
+    "lint": "node packages/monorepo-helper/lib/cli run npm run lint",
+    "test": "node packages/monorepo-helper/lib/cli run npm test",
+    "ci": "node packages/monorepo-helper/lib/cli run npm run ci"
+  },
+  "dependencies": {
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-spawn": "^5.1.0",
+    "fs-extra": "^4.0.1",
+    "is-builtin-module": "^1.0.0",
+    "jest": "^21.0.1",
+    "precinct": "^3.8.0",
+    "standard": "^10.0.3"
+  }
 }
